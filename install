@@ -5,6 +5,7 @@ echo "This is the install script for development only"
 echo "Report to README for other environment installation"
 
 DEV_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+VENV_BIN=${VENV_BIN:-virtualenv}
 source "${DEV_DIR}/common.sh"
 
 # Clone dependencies
@@ -21,7 +22,7 @@ done
 
 # create and activate venv
 # TODO This should be removed as soon as the service is fully executed through fig.
-[[ -d "${CALIOPEN_DIR}/venv" ]] || virtualenv ${VENV_OPTS} "${CALIOPEN_DIR}/venv"
+[[ -d "${CALIOPEN_DIR}/venv" ]] || ${VENV_BIN} ${VENV_OPTS} "${CALIOPEN_DIR}/venv"
 source "${CALIOPEN_DIR}/venv/bin/activate"
 # setup all deps in venv
 for d in ${CALIOPEN_COMPONENTS}

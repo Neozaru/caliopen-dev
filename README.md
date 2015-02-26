@@ -28,6 +28,13 @@ git clone https://github.com/CaliOpen/caliopen-dev.git bin
 ./bin/install
 ```
 
+Note : If your system doesn't use Python2 as main Python version, *virtualenv* command could not work correctly.
+In *ArchLinux* distribution, Python2 virtualenv package and command is **virtualenv2**.
+You can launch install script with *VENV_BIN* environment variable set.
+```
+VENV_BIN=virtualenv2 ./bin/install
+```
+
 > Note that following dependencies are required:
 >
 > * python
